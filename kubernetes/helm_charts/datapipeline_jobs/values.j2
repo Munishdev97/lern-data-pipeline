@@ -97,7 +97,7 @@ base_config: |
       statebackend {
         blob {
           storage {
-            account = "{% if cloud_service_provider == "azure" %}{{ cloud_storage_key }}.blob.core.windows.net{% elif cloud_service_provider in ["aws", "oci"] %}{{ cloud_storage_flink_bucketname }}{% endif %}"
+            account = "{% if cloud_service_provider == "azure" %}{{ cloud_storage_key }}.blob.core.windows.net{% elif cloud_service_provider in ["aws", "oci"] %}{{ cloud_private_storage_endpoint }}{% endif %}"
             container = "{{ cloud_storage_flink_bucketname }}"
             checkpointing.dir = "checkpoint"
           }
